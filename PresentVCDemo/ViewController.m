@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PresentedViewController.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (IBAction)onclickButton:(id)sender {
+    PresentedViewController *vc = [[PresentedViewController alloc] init];
+    
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;// set presenting vc modalPresentationStyle
+    //
+    //    UIModalPresentationFullScreen = 0,
+    //    UIModalPresentationPageSheet,
+    //    UIModalPresentationFormSheet,
+    //    UIModalPresentationCurrentContext
+    
+    vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical; // set presented vc modalTransitionStyle
+   
+    //
+    //    UIModalTransitionStyleFlipHorizontal,
+    //    UIModalTransitionStyleCrossDissolve,
+    //    UIModalTransitionStylePartialCurl,  
+    [self presentViewController:vc animated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
